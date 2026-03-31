@@ -52,3 +52,13 @@ models:
       - name: market_segment
         data_tests:
             - not_null
+
+  - name: dim_part
+    columns:
+      - name: part_key
+        data_tests:
+          - not_null
+          - unique
+      - name: part_name
+        data_tests:
+            - not_null
