@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+    - name: TPCH
+      database: RAW
+      schema: TPCH_SF1
+      tables:
+        - name: CUSTOMER
+        - name: ORDERS
+        - name: LINEITEM
+        - name: NATION
+        - name: PART
+        - name: PARTSUPP
+        - name: REGION
+        - name: SUPPLIER
