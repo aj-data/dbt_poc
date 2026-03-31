@@ -36,7 +36,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
-    # Applies to all files under models/example/
+  tpch_dbt:
+    staging:
+      +schema: bronze
+      +materialized: view
+    intermediate:
+      +schema: silver
+      +materialized: ephemeral   # no persiste, se inlinea
     marts:
+      +schema: gold
       +materialized: table

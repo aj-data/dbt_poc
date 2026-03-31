@@ -12,7 +12,7 @@ models:
         data_tests:
           - not_null
           - unique
-      - name: day_of_week_number
+      - name: day_of_week
         data_tests:
           - not_null
           - accepted_values:
