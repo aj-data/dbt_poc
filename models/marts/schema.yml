@@ -1,0 +1,26 @@
+
+models:
+  - name: dim_date
+    description: "Dimensión de tiempo. Granularidad: un día. Rango 1992–1998."
+    columns:
+      - name: date_key
+        description: "Surrogate key en formato YYYYMMDD"
+        data_tests:
+          - not_null
+          - unique
+      - name: full_date
+        data_tests:
+          - not_null
+          - unique
+      - name: day_of_week_number
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
+      - name: is_weekend
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [true, false]
