@@ -14,7 +14,7 @@ regions as (
 int_customer as (
     select
         c.c_custkey as customer_key,
-        c.c_name as customer_name,
+        SPLIT_PART(c.c_name, '#', 2) as customer_name,
         c.c_address as customer_address,
         c.c_phone as customer_phone,
         c.c_acctbal as account_balance,

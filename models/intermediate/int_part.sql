@@ -6,8 +6,8 @@ with parts as (
 select
     p_partkey    as part_key,
     p_name       as part_name,
-    p_mfgr       as manufacturer,
-    p_brand      as brand,
+    SPLIT_PART(p_mfgr, '#', 2) as manufacturer,
+    SPLIT_PART(p_brand, '#', 2) as brand,
     p_type       as part_type,
     split_part(p_type, ' ', 1) as material_category,
     p_size       as size,
