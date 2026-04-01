@@ -9,3 +9,42 @@ models:
           - accepted_values:
               arguments:
                 values: ['1-URGENT', '2-HIGH', '3-MEDIUM', '4-NOT SPECIFIED', '5-LOW']
+      - name: o_clerk
+        data_tests:
+          - not_null
+          - matches_regex:
+              arguments:
+                regex: '^Clerk#[0-9]{9}$'
+  - name: STG_TPCH__CUSTOMER
+    description: "Customers raw data"
+    columns:
+      - name: c_name
+        data_tests:
+          - not_null
+          - matches_regex:
+              arguments:
+                regex: '^Customer#[0-9]{9}$'
+  - name: STG_TPCH__PART
+    description: "Parts raw data"
+    columns:
+      - name: p_mfgr
+        data_tests:
+          - not_null
+          - matches_regex:
+              arguments:
+                regex: '^Manufacturer#[0-9]{9}$'
+      - name: p_brand
+        data_tests:
+          - not_null
+          - matches_regex:
+              arguments:
+                regex: '^Brand#[0-9]{9}$'
+  - name: STG_TPCH__SUPPLIER
+    description: "Parts raw data"
+    columns:
+      - name: s_name
+        data_tests:
+          - not_null
+          - matches_regex:
+              arguments:
+                regex: '^Supplier#[0-9]{9}$'
