@@ -33,7 +33,11 @@ int_order_items as (
         ps.ps_availqty as available_quantity,
         li.l_extendedprice * (1 - li.l_discount) as revenue,
         li.l_extendedprice * (1 - li.l_discount) * (1 + li.l_tax) as net_amount,
-        (li.l_extendedprice * (1 - li.l_discount)) - (ps.ps_supplycost * li.l_quantity) as gross_margin
+        (li.l_extendedprice * (1 - li.l_discount)) - (ps.ps_supplycost * li.l_quantity) as gross_margin,
+        CASE
+            WHEN li.l_extendedprice * (1 - li.l_discount) = 0 THEN NULL
+            ELSE round(((li.l_extendedprice * (1 - li.l_discount)) - (ps.ps_supplycost * li.l_quantity)) / (li.l_extendedprice * (1 - li.l_discount)), 4)
+        END AS gross_margin_ratio
     from lineitems li
     inner join orders o 
         on li.l_orderkey = o.o_orderkey
