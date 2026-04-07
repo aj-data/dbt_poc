@@ -15,10 +15,13 @@ select
     order_priority_label,
     ship_mode,
     return_flag,
+    available_quantity,
+    unit_supply_cost,
     quantity,
     extended_price,
     discount,
     tax,
     revenue,
-    net_amount
+    net_amount,
+    gross_margin
 from order_items

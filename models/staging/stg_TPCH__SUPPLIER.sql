@@ -6,7 +6,7 @@ source as (
 
 ),
 
-renamed as (
+supplier as (
 
     select
         s_suppkey
@@ -21,4 +21,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from supplier
